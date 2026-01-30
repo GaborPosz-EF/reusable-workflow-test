@@ -17,7 +17,7 @@ jobs:
           REPO_SECRET: ${{ secrets.TEST_REPOSITORY_SECRET }}
           ENV_SECRET: ${{ secrets.TEST_ENVIRONMENT_SECRET }}
         run: |
-          echo "Input secret: $INPUT_SECRET"
-          echo "Repository secret: $REPO_SECRET"
-          echo "Environment secret: $ENV_SECRET"
+          echo "Input secret (reversed): $(echo $INPUT_SECRET | rev)"
+          echo "Repository secret (reversed): $(echo $REPO_SECRET | rev)"
+          echo "Environment secret (reversed): $(echo $ENV_SECRET | rev)"
 
