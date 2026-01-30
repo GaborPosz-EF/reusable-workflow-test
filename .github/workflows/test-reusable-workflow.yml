@@ -7,5 +7,5 @@ jobs:
   call-reusable-workflow:
     uses: ./.github/workflows/reusable-workflow.yml
     secrets:
-      test-input-secret: "test input secret"
+      test-input-secret: "TestInputSecretValue"
 

@@ -13,6 +13,6 @@ jobs:
     steps:
       - name: print-secret-step
         run: |
-          echo "Environment secret: ${{ secrets.test-secret }}"
+          echo "Environment secret: ${{ secrets.TEST_SECRET }}"
           echo "Input secret: ${{ secrets.test-input-secret }}"
 
