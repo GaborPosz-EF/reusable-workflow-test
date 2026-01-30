@@ -12,7 +12,10 @@ jobs:
     environment: test-environment
     steps:
       - name: print-secret-step
+        env:
+          ENV_SECRET: ${{ secrets.TEST_SECRET }}
+          INPUT_SECRET: ${{ secrets.test-input-secret }}
         run: |
-          echo "Environment secret: ${{ secrets.TEST_SECRET }}"
-          echo "Input secret: ${{ secrets.test-input-secret }}"
+          echo "Environment secret: $ENV_SECRET"
+          echo "Input secret: $INPUT_SECRET"
 
