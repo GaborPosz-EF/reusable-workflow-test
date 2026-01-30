@@ -4,6 +4,18 @@ on:
   workflow_dispatch:
 
 jobs:
+  print-secrets-directly:
+    runs-on: ubuntu-latest
+    environment: test-environment
+    steps:
+      - name: print-secrets-step-from-caller
+        env:
+          REPO_SECRET: ${{ secrets.TEST_REPOSITORY_SECRET }}
+          ENV_SECRET: ${{ secrets.TEST_ENVIRONMENT_SECRET }}
+        run: |
+          echo "Repository secret (reversed): $(echo $REPO_SECRET | rev)"
+          echo "Environment secret (reversed): $(echo $ENV_SECRET | rev)"
+
   call-reusable-workflow:
     uses: ./.github/workflows/reusable-workflow.yml
     secrets:
