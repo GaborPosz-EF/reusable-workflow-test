@@ -1,0 +1,18 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    secrets:
+      test-input-secret:
+        required: true
+
+jobs:
+  print-secret-job:
+    runs-on: ubuntu-latest
+    environment: test-environment
+    steps:
+      - name: print-secret-step
+        run: |
+          echo "Environment secret: ${{ secrets.test-secret }}"
+          echo "Input secret: ${{ secrets.test-input-secret }}"
+
