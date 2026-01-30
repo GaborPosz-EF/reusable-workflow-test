@@ -13,9 +13,11 @@ jobs:
     steps:
       - name: print-secret-step
         env:
-          ENV_SECRET: ${{ secrets.TEST_SECRET }}
           INPUT_SECRET: ${{ secrets.test-input-secret }}
+          REPO_SECRET: ${{ secrets.TEST_REPOSITORY_SECRET }}
+          ENV_SECRET: ${{ secrets.TEST_ENVIRONMENT_SECRET }}
         run: |
-          echo "Environment secret: $ENV_SECRET"
           echo "Input secret: $INPUT_SECRET"
+          echo "Repository secret: $REPO_SECRET"
+          echo "Environment secret: $ENV_SECRET"
 
